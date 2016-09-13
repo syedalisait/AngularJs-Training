@@ -2,9 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title></title>
   </head>
   <body>
-    <div> Test content inside a folder </div>
+    <div ng-app="LunchCheck">
+      <div ng-controller="LunchCheckController">
+        <!--
+          Consider only valid items in the textbox (item1, , item2, item3). This gives output as Enjoy
+          as there are only 3 items and not 4 as 2nd item is not valid. Look app.js for implementation
+        -->
+        <input type="text" ng-model="name" ng-class="class">
+        <button type="button" name="button" ng-click="CheckLunch()">Check If Too Much</button>
+        <div ng-class="class">
+          {{result}}
+        </div>
+      </div>
+     </div>
   </body>
 </html>
